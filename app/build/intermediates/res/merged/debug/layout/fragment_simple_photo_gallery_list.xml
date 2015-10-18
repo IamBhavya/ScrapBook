@@ -1,0 +1,21 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        <GridView
+            style="@style/GridView.PhotoGallery"
+            android:id="@android:id/list"
+            android:numColumns="3" />
+        <TextView
+            android:id="@+id/empty"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:visibility="invisible"/>
+    </FrameLayout>
+</LinearLayout>
+<!-- From: file:/home/bhavya/android-studio-projects/MyApplication/app/src/main/res/layout/fragment_simple_photo_gallery_list.xml -->
