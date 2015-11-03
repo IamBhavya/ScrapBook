@@ -30,15 +30,19 @@
         <activity
             android:name="com.example.bhavya.myapplication.MainActivity"
             android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.example.bhavya.myapplication.TopListActivity"
+            android:label="@string/title_activity_slide_show" >
+        </activity>
+        <activity
+            android:name="com.example.bhavya.myapplication.Launcher1"
+            android:label="@string/title_activity_launcher1" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity
-            android:name="com.example.bhavya.myapplication.TopListActivity"
-            android:label="@string/title_activity_slide_show" >
         </activity>
     </application>
 

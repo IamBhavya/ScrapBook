@@ -13,7 +13,7 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Environment;
-import android.support.v7.app.AppCompatActivity;
+//import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -37,9 +37,9 @@ public class MainActivity extends Activity implements SurfaceHolder.Callback, Ca
 
     Camera mCamera;
     SurfaceView mPreview;
+    final String TAG="CAMERA_ACTIVITY";
 
     public static final int SELECT_PHOTO_ACTION = 0;
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -52,20 +52,49 @@ public class MainActivity extends Activity implements SurfaceHolder.Callback, Ca
         mPreview.getHolder().setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
 
         mCamera = Camera.open();
+
+        Log.d(TAG,"onCreate()");
     }
 
     @Override
     public void onPause() {
         super.onPause();
         mCamera.stopPreview();
+
+        Log.d(TAG,"onPause()");
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
         mCamera.release();
-        Log.d("CAMERA", "Destroy");
+        Log.d(TAG, "Destroy");
     }
+
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        mCamera.startPreview();
+        Log.d(TAG, "onResume()");
+    }
+
+    @Override
+    public void onStart(){
+        super.onStart();
+
+        Log.d(TAG, "onStart()");
+    }
+
+    @Override
+    public void onStop(){
+        super.onStop();
+
+        Log.d(TAG, "onStop()");
+    }
+
+
+
 
     public void onCancelClick(View v) {
         finish();
@@ -161,6 +190,7 @@ public class MainActivity extends Activity implements SurfaceHolder.Callback, Ca
         mCamera.setDisplayOrientation(90);
         mCamera.startPreview();
     }
+
 
     @Override
     public void surfaceCreated(SurfaceHolder holder) {

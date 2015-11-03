@@ -1,6 +1,7 @@
 package com.example.bhavya.myapplication;
 
 import android.app.Activity;
+import android.app.DialogFragment;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -8,7 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class BaseFragment extends Fragment {
+public class BaseFragment extends DialogFragment {
     public static final String ARG_SECTION_NUMBER = "ARG_SECTION_NUMBER";
     /**
      * Default empty constructor

@@ -39,7 +39,7 @@ public class HorizontalPhotoGalleryFragment extends SimplePhotoGalleryListFragme
         View view = null;
         view = inflater.inflate(R.layout.fragment_horizontal_gallery, container, false);
 
-// Set the mAdapter
+    // Set the mAdapter
         mEmptyTextView = (TextView)view.findViewById(R.id.empty);
         mHorizontalListView = (TwoWayView) view.findViewById(R.id.horizontalList);
         mHorizontalListView.setAdapter(mAdapter);
@@ -48,4 +48,3 @@ public class HorizontalPhotoGalleryFragment extends SimplePhotoGalleryListFragme
         return view;
     }
 }
-

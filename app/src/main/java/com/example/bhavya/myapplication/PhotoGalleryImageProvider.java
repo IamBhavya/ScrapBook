@@ -37,15 +37,35 @@ public class PhotoGalleryImageProvider {
      * @return
      */
     public static List<PhotoItem> getAlbumThumbnails(Context context){
-        final String[] projection = {MediaStore.Images.Thumbnails.DATA,MediaStore.Images.Thumbnails.IMAGE_ID};
-        Cursor thumbnailsCursor = context.getContentResolver().query( MediaStore.Images.Thumbnails.EXTERNAL_CONTENT_URI,
+
+        File dir = new File(CAMERA_IMAGE_BUCKET_NAME);
+        String[] filelist = dir.list();
+        String path = CAMERA_IMAGE_BUCKET_NAME;
+
+
+
+
+//
+       // final String[] projection = {MediaStore.Images.Thumbnails.DATA,MediaStore.Images.Thumbnails.IMAGE_ID};
+
+        final String[] projection = {,
+        };
+
+        Uri myUri = Uri.parse(CAMERA_IMAGE_BUCKET_NAME);
+//
+//        Uri capturedImage = Uri.parse(
+//                android.provider.MediaStore.Images.Media.insertImage(
+//                        getContentResolver(),
+//                        file.getAbsolutePath(), null, null));
+
+        Cursor thumbnailsCursor = context.getContentResolver().query( myUri,
                 projection, // Which columns to return
                 null, // Return all rows
                 null,
                 null);
 // Extract the proper column thumbnails
-        int thumbnailColumnIndex = thumbnailsCursor.getColumnIndex(MediaStore.Images.Thumbnails.DATA);
-        ArrayList<PhotoItem> result = new ArrayList<PhotoItem>(thumbnailsCursor.getCount());
+        int thumbnailColumnIndex = thumbnailsCursor.getColumnIndex(MediaStore.Images.Media.DATA);
+        ArrayList<PhotoItem> result = new ArrayList<PhotoItem>(filelist.length);
         if (thumbnailsCursor.moveToFirst()) {
             do {
 // Generate a tiny thumbnail version.
